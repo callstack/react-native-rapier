@@ -1,5 +1,5 @@
 #ifdef __cplusplus
-#import "callstack-react-native-rapier.h"
+#import "react-native-rapier.h"
 #endif
 
 #ifdef RCT_NEW_ARCH_ENABLED

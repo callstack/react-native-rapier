@@ -13,7 +13,7 @@ const ReactNativeRapierModule = isTurboModuleEnabled
   ? require('./NativeReactNativeRapier').default
   : NativeModules.ReactNativeRapier;
 
-const ReactNativeRapier = ReactNativeRapierModule
+ReactNativeRapierModule
   ? ReactNativeRapierModule
   : new Proxy(
       {},
@@ -24,6 +24,16 @@ const ReactNativeRapier = ReactNativeRapierModule
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return ReactNativeRapier.multiply(a, b);
+declare global {
+  var __RapierProxy: object | undefined;
 }
+
+if (global.__RapierProxy == null) {
+  throw new Error(LINKING_ERROR);
+}
+
+const proxy = global.__RapierProxy;
+// Type cast this to Rapier types
+const Rapier = proxy as any;
+
+export default Rapier;
