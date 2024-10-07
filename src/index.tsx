@@ -13,7 +13,7 @@ const ReactNativeRapierModule = isTurboModuleEnabled
   ? require('./NativeReactNativeRapier').default
   : NativeModules.ReactNativeRapier;
 
-ReactNativeRapierModule
+const Rapier = ReactNativeRapierModule
   ? ReactNativeRapierModule
   : new Proxy(
       {},
@@ -23,17 +23,5 @@ ReactNativeRapierModule
         },
       }
     );
-
-declare global {
-  var __RapierProxy: object | undefined;
-}
-
-if (global.__RapierProxy == null) {
-  throw new Error(LINKING_ERROR);
-}
-
-const proxy = global.__RapierProxy;
-// Type cast this to Rapier types
-const Rapier = proxy as any;
 
 export default Rapier;
