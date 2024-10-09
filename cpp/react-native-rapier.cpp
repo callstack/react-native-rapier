@@ -1,21 +1,12 @@
 #include "react-native-rapier.h"
-#include "macros.h"
 
+namespace facebook::react {
 
-namespace callstack {
-namespace react_native_rapier {
-void install(jsi::Runtime& rt) {
-  auto multiply = HOSTFN("multiply", 2) {
-    auto num1 = args[0].asNumber();
-    auto num2 = args[1].asNumber();
-    return jsi::Value(num1 + num2);
-  });
+ReactNativeRapier::ReactNativeRapier(std::shared_ptr<CallInvoker> jsInvoker)
+: NativeReactNativeRapierCxxSpecJSI(jsInvoker), _callInvoker(jsInvoker) {}
 
-  auto rapier = jsi::Object { rt };
-  rapier.setProperty(rt, "multiply", std::move(multiply));
-
-  rt.global().setProperty(rt, "__RapierProxy", std::move(rapier));
-}
-}
+double ReactNativeRapier::multiply(jsi::Runtime &rt, double a, double b) {
+  return a * b;
 }
 
+}

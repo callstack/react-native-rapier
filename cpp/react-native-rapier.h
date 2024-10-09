@@ -1,9 +1,22 @@
+#pragma once
+
 #include <ReactCommon/TurboModule.h>
+#include <RNReactNativeRapierSpecJSI.h>
+
+namespace facebook::react {
 
 using namespace facebook;
 
-namespace callstack {
-  namespace react_native_rapier {
-    void install(jsi::Runtime& rt);
-  }
-}
+class ReactNativeRapier : public NativeReactNativeRapierCxxSpecJSI {
+public:
+  explicit ReactNativeRapier(std::shared_ptr<CallInvoker> jsInvoker);
+
+public:
+  double multiply(jsi::Runtime &rt, double a, double b) override;
+  constexpr static auto kModuleName = "ReactNativeRapier";
+
+private:
+  std::shared_ptr<CallInvoker> _callInvoker;
+};
+
+} // namespace facebook::react

@@ -1,28 +1,14 @@
 #import "ReactNativeRapier.h"
-#import <ReactCommon/RCTTurboModuleWithJSIBindings.h>
-
-
-@interface ReactNativeRapier () <RCTTurboModuleWithJSIBindings>
-@end
+#include <ReactCommon/CxxTurboModuleUtils.h>
 
 @implementation ReactNativeRapier
 
-RCT_EXPORT_MODULE()
-
-#pragma mark - RCTTurboModuleWithJSIBindings
-
-- (void)installJSIBindingsWithRuntime:(facebook::jsi::Runtime &)runtime
-{
-  callstack::react_native_rapier::install(runtime);
++ (void)load {
+  facebook::react::registerCxxModuleToGlobalModuleMap(
+  std::string(facebook::react::ReactNativeRapier::kModuleName),
+  [&](std::shared_ptr<facebook::react::CallInvoker> jsInvoker) {
+  return std::make_shared<facebook::react::ReactNativeRapier>(jsInvoker);
+});
 }
-
-// Don't compile this code when we build for the old architecture.
-#ifdef RCT_NEW_ARCH_ENABLED
-- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
-(const facebook::react::ObjCTurboModule::InitParams &)params
-{
-  return std::make_shared<facebook::react::NativeReactNativeRapierSpecJSI>(params);
-}
-#endif
 
 @end
