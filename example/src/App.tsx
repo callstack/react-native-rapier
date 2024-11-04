@@ -1,17 +1,25 @@
-import { useState, useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { useState, useEffect, useCallback } from 'react';
+import { StyleSheet, View, Text, Button } from 'react-native';
 import Rapier from '@callstack/react-native-rapier';
 
 export default function App() {
-  const [result, setResult] = useState<number | undefined>();
+  const [module, setModule] = useState<any | undefined>();
 
   useEffect(() => {
-    setResult(Rapier.multiply(3, 7));
+    setModule(Rapier.create({ wbg: {} }));
   }, []);
+
+  const callFn = useCallback(() => {
+    console.log(module, module.exports);
+    let res = module.exports.rawimpulsejointset_new();
+    console.log('res: ', res);
+  }, [module]);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Module loaded: {!!module}</Text>
+      {!!module && <Text>{JSON.stringify(module)}</Text>}
+      {!!module && <Button title="Call" onPress={callFn} />}
     </View>
   );
 }

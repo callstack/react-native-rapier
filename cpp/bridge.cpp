@@ -1,6 +1,7 @@
 #include "gen/rapier3d.h"
 #include <jsi/jsi.h>
 #include <ReactCommon/TurboModule.h>
+#include "react-native-rapier.h"
 
 using namespace facebook::react;
 using namespace facebook;
@@ -8,12 +9,6 @@ using namespace facebook;
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-struct w2c_wbg {
-  w2c_rapier__wasm3d__bg* root;
-  jsi::Runtime& rt;
-  jsi::Object importObj;
-};
 
 /* import: 'wbg' '__wbg_bind_4d857b598695205e' */
 u32 w2c_wbg_0x5F_wbg_bind_4d857b598695205e(w2c_wbg* ctx, u32 a, u32 b, u32 c, u32 d) {
