@@ -2,7 +2,7 @@
 #ifndef RAPIER3D_H_GENERATED_
 #define RAPIER3D_H_GENERATED_
 
-#include "../wasm-rt.h"
+#include "wasm-rt.h"
 
 #include <stdint.h>
 
@@ -38,70 +38,70 @@ void wasm2c_rapier__wasm3d__bg_free(w2c_rapier__wasm3d__bg*);
 wasm_rt_func_type_t wasm2c_rapier__wasm3d__bg_get_func_type(uint32_t param_count, uint32_t result_count, ...);
 
 /* import: 'wbg' '__wbg_bind_4d857b598695205e' */
-extern u32 w2c_wbg_0x5F_wbg_bind_4d857b598695205e(struct w2c_wbg*, u32, u32, u32, u32);
+u32 w2c_wbg_0x5F_wbg_bind_4d857b598695205e(struct w2c_wbg*, u32, u32, u32, u32);
 
 /* import: 'wbg' '__wbg_buffer_12d079cc21e14bdb' */
-extern u32 w2c_wbg_0x5F_wbg_buffer_12d079cc21e14bdb(struct w2c_wbg*, u32);
+u32 w2c_wbg_0x5F_wbg_buffer_12d079cc21e14bdb(struct w2c_wbg*, u32);
 
 /* import: 'wbg' '__wbg_call_8e7cb608789c2528' */
-extern u32 w2c_wbg_0x5F_wbg_call_8e7cb608789c2528(struct w2c_wbg*, u32, u32, u32, u32);
+u32 w2c_wbg_0x5F_wbg_call_8e7cb608789c2528(struct w2c_wbg*, u32, u32, u32, u32);
 
 /* import: 'wbg' '__wbg_call_938992c832f74314' */
-extern u32 w2c_wbg_0x5F_wbg_call_938992c832f74314(struct w2c_wbg*, u32, u32, u32, u32, u32);
+u32 w2c_wbg_0x5F_wbg_call_938992c832f74314(struct w2c_wbg*, u32, u32, u32, u32, u32);
 
 /* import: 'wbg' '__wbg_call_b3ca7c6051f9bec1' */
-extern u32 w2c_wbg_0x5F_wbg_call_b3ca7c6051f9bec1(struct w2c_wbg*, u32, u32, u32);
+u32 w2c_wbg_0x5F_wbg_call_b3ca7c6051f9bec1(struct w2c_wbg*, u32, u32, u32);
 
 /* import: 'wbg' '__wbg_length_c20a40f15020d68a' */
-extern u32 w2c_wbg_0x5F_wbg_length_c20a40f15020d68a(struct w2c_wbg*, u32);
+u32 w2c_wbg_0x5F_wbg_length_c20a40f15020d68a(struct w2c_wbg*, u32);
 
 /* import: 'wbg' '__wbg_length_d25bbcbc3367f684' */
-extern u32 w2c_wbg_0x5F_wbg_length_d25bbcbc3367f684(struct w2c_wbg*, u32);
+u32 w2c_wbg_0x5F_wbg_length_d25bbcbc3367f684(struct w2c_wbg*, u32);
 
 /* import: 'wbg' '__wbg_new_63b92bc8671ed464' */
-extern u32 w2c_wbg_0x5F_wbg_new_63b92bc8671ed464(struct w2c_wbg*, u32);
+u32 w2c_wbg_0x5F_wbg_new_63b92bc8671ed464(struct w2c_wbg*, u32);
 
 /* import: 'wbg' '__wbg_newwithbyteoffsetandlength_4a659d079a1650e0' */
-extern u32 w2c_wbg_0x5F_wbg_newwithbyteoffsetandlength_4a659d079a1650e0(struct w2c_wbg*, u32, u32, u32);
+u32 w2c_wbg_0x5F_wbg_newwithbyteoffsetandlength_4a659d079a1650e0(struct w2c_wbg*, u32, u32, u32);
 
 /* import: 'wbg' '__wbg_newwithbyteoffsetandlength_aa4a17c33a06e5cb' */
-extern u32 w2c_wbg_0x5F_wbg_newwithbyteoffsetandlength_aa4a17c33a06e5cb(struct w2c_wbg*, u32, u32, u32);
+u32 w2c_wbg_0x5F_wbg_newwithbyteoffsetandlength_aa4a17c33a06e5cb(struct w2c_wbg*, u32, u32, u32);
 
 /* import: 'wbg' '__wbg_newwithlength_1e8b839a06de01c5' */
-extern u32 w2c_wbg_0x5F_wbg_newwithlength_1e8b839a06de01c5(struct w2c_wbg*, u32);
+u32 w2c_wbg_0x5F_wbg_newwithlength_1e8b839a06de01c5(struct w2c_wbg*, u32);
 
 /* import: 'wbg' '__wbg_rawcontactforceevent_new' */
-extern u32 w2c_wbg_0x5F_wbg_rawcontactforceevent_new(struct w2c_wbg*, u32);
+u32 w2c_wbg_0x5F_wbg_rawcontactforceevent_new(struct w2c_wbg*, u32);
 
 /* import: 'wbg' '__wbg_rawraycolliderintersection_new' */
-extern u32 w2c_wbg_0x5F_wbg_rawraycolliderintersection_new(struct w2c_wbg*, u32);
+u32 w2c_wbg_0x5F_wbg_rawraycolliderintersection_new(struct w2c_wbg*, u32);
 
 /* import: 'wbg' '__wbg_set_a47bac70306a19a7' */
-extern void w2c_wbg_0x5F_wbg_set_a47bac70306a19a7(struct w2c_wbg*, u32, u32, u32);
+void w2c_wbg_0x5F_wbg_set_a47bac70306a19a7(struct w2c_wbg*, u32, u32, u32);
 
 /* import: 'wbg' '__wbg_set_bd975934d1b1fddb' */
-extern void w2c_wbg_0x5F_wbg_set_bd975934d1b1fddb(struct w2c_wbg*, u32, u32, u32);
+void w2c_wbg_0x5F_wbg_set_bd975934d1b1fddb(struct w2c_wbg*, u32, u32, u32);
 
 /* import: 'wbg' '__wbindgen_boolean_get' */
-extern u32 w2c_wbg_0x5F_wbindgen_boolean_get(struct w2c_wbg*, u32);
+u32 w2c_wbg_0x5F_wbindgen_boolean_get(struct w2c_wbg*, u32);
 
 /* import: 'wbg' '__wbindgen_is_function' */
-extern u32 w2c_wbg_0x5F_wbindgen_is_function(struct w2c_wbg*, u32);
+u32 w2c_wbg_0x5F_wbindgen_is_function(struct w2c_wbg*, u32);
 
 /* import: 'wbg' '__wbindgen_memory' */
-extern u32 w2c_wbg_0x5F_wbindgen_memory(struct w2c_wbg*);
+u32 w2c_wbg_0x5F_wbindgen_memory(struct w2c_wbg*);
 
 /* import: 'wbg' '__wbindgen_number_get' */
-extern void w2c_wbg_0x5F_wbindgen_number_get(struct w2c_wbg*, u32, u32);
+void w2c_wbg_0x5F_wbindgen_number_get(struct w2c_wbg*, u32, u32);
 
 /* import: 'wbg' '__wbindgen_number_new' */
-extern u32 w2c_wbg_0x5F_wbindgen_number_new(struct w2c_wbg*, f64);
+u32 w2c_wbg_0x5F_wbindgen_number_new(struct w2c_wbg*, f64);
 
 /* import: 'wbg' '__wbindgen_object_drop_ref' */
-extern void w2c_wbg_0x5F_wbindgen_object_drop_ref(struct w2c_wbg*, u32);
+void w2c_wbg_0x5F_wbindgen_object_drop_ref(struct w2c_wbg*, u32);
 
 /* import: 'wbg' '__wbindgen_throw' */
-extern void w2c_wbg_0x5F_wbindgen_throw(struct w2c_wbg*, u32, u32);
+void w2c_wbg_0x5F_wbindgen_throw(struct w2c_wbg*, u32, u32);
 
 /* export: 'memory' */
 wasm_rt_memory_t* w2c_rapier__wasm3d__bg_memory(w2c_rapier__wasm3d__bg* instance);
