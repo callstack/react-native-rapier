@@ -4,7 +4,8 @@
 //
 //  Created by Robert Pasiński on 05/11/2024.
 //
-#include "react-native-rapier.h"
+#pragma once
+#include "jsi-imports-bridge.h"
 
 namespace facebook::react {
 
