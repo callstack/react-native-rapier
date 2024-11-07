@@ -1,7 +1,6 @@
 #include "gen/rapier3d.h"
 #include <jsi/jsi.h>
-#include <ReactCommon/TurboModule.h>
-#include "react-native-rapier.h"
+#include "jsi-imports-bridge.h"
 
 using namespace facebook::react;
 using namespace facebook;
