@@ -5,12 +5,12 @@
 
 namespace facebook::react {
 
-std::shared_ptr<RapierModuleContext> tryGetRapierContext(jsi::Runtime& rt, const jsi::Object& rapierObject) {
+std::shared_ptr<Rapier__wasm3d__bgModuleContext> tryGetRapierContext(jsi::Runtime& rt, const jsi::Object& rapierObject) {
   if (!rapierObject.hasNativeState(rt)) {
     return nullptr;
   }
 
-  auto context = std::dynamic_pointer_cast<RapierModuleContext>(rapierObject.getNativeState(rt));
+  auto context = std::dynamic_pointer_cast<Rapier__wasm3d__bgModuleContext>(rapierObject.getNativeState(rt));
   return context;
 }
 
@@ -18,7 +18,7 @@ ReactNativeRapier::ReactNativeRapier(std::shared_ptr<CallInvoker> jsInvoker)
 : NativeReactNativeRapierCxxSpecJSI(jsInvoker), _callInvoker(jsInvoker) {}
 
 jsi::Object ReactNativeRapier::create(jsi::Runtime &rt, jsi::Object importObject) {
-  return createRapierExports(rt, std::move(importObject));
+  return createRapier__wasm3d__bgExports(rt, std::move(importObject));
 }
 
 }
