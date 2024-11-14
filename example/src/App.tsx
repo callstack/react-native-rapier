@@ -1,6 +1,28 @@
-import { useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
+import Rapier from '@callstack/react-native-rapier';
+
+// @ts-ignore
+global.WebAssembly = {
+  instantiate: async (bytes: any, importObject = {}) => {
+    const rapier = Rapier.create(importObject);
+    return {
+      instance: {
+        exports: rapier.exports,
+      },
+      module: {
+        bytes,
+        imports: importObject,
+      },
+    };
+  },
+  Instance: class {
+    constructor() {}
+  },
+};
+
 import 'text-encoding-polyfill'; // Required for `rapier3d-compat`
+
 import RAPIER, {
   World,
   ColliderDesc,
@@ -8,47 +30,49 @@ import RAPIER, {
 } from '@dimforge/rapier3d-compat';
 
 export default function App() {
-  useEffect(() => {
-    async function loadModule() {
-      RAPIER.init();
-    }
-    loadModule();
-  }, []);
+  const worldSimulation = useCallback(async () => {
+    try {
+      await RAPIER.init();
+      const gravity = { x: 0.0, y: -9.81, z: 0.0 };
+      const world = new World(gravity);
 
-  const worldSimulation = useCallback(() => {
-    const gravity = { x: 0.0, y: -9.81, z: 0.0 };
-    const world = new World(gravity);
+      // Create a ground plane
+      const groundColliderDesc = ColliderDesc.cuboid(10.0, 0.1, 10.0);
+      world.createCollider(groundColliderDesc);
 
-    // Create a ground plane
-    const groundColliderDesc = ColliderDesc.cuboid(10.0, 0.1, 10.0);
-    world.createCollider(groundColliderDesc);
-
-    // Create a dynamic rigid-body with a cube collider
-    const rigidBodyDesc = RigidBodyDesc.dynamic().setTranslation(0.0, 5.0, 0.0);
-    const rigidBody = world.createRigidBody(rigidBodyDesc);
-
-    const colliderDesc = ColliderDesc.cuboid(0.5, 0.5, 0.5);
-    world.createCollider(colliderDesc, rigidBody);
-
-    // Simulation loop
-    const timeStep = 1 / 60;
-    function simulate() {
-      world.step();
-
-      // Get the position of the cube
-      const position = rigidBody.translation();
-      console.log(
-        `Cube position: x=${position.x.toFixed(2)}, y=${position.y.toFixed(2)}, z=${position.z.toFixed(2)}`
+      // Create a dynamic rigid-body with a cube collider
+      const rigidBodyDesc = RigidBodyDesc.dynamic().setTranslation(
+        0.0,
+        5.0,
+        0.0
       );
+      const rigidBody = world.createRigidBody(rigidBodyDesc);
 
-      // Continue simulation if cube is above ground
-      if (position.y > 0.5) {
-        setTimeout(() => simulate(), timeStep * 1000);
+      const colliderDesc = ColliderDesc.cuboid(0.5, 0.5, 0.5);
+      world.createCollider(colliderDesc, rigidBody);
+
+      // Simulation loop
+      const timeStep = 1 / 60;
+      function simulate() {
+        world.step();
+
+        // Get the position of the cube
+        const position = rigidBody.translation();
+        console.log(
+          `Cube position: x=${position.x.toFixed(2)}, y=${position.y.toFixed(2)}, z=${position.z.toFixed(2)}`
+        );
+
+        // Continue simulation if cube is above ground
+        if (position.y > 0.5) {
+          setTimeout(() => simulate(), timeStep * 1000);
+        }
       }
-    }
 
-    // Start the simulation
-    simulate();
+      // Start the simulation
+      simulate();
+    } catch (error) {
+      console.error(error);
+    }
   }, []);
 
   return (

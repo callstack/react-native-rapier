@@ -1629,6 +1629,7 @@ __metadata:
     "@babel/core": ^7.20.0
     "@babel/preset-env": ^7.20.0
     "@babel/runtime": ^7.20.0
+    "@dimforge/rapier3d-compat": 0.11.2
     "@react-native/babel-preset": 0.75.4
     "@react-native/metro-config": 0.75.4
     "@react-native/typescript-config": 0.75.4
@@ -1646,7 +1647,6 @@ __metadata:
   resolution: "@callstack/react-native-rapier@workspace:."
   dependencies:
     "@commitlint/config-conventional": ^17.0.2
-    "@dimforge/rapier3d-compat": 0.11.2
     "@evilmartians/lefthook": ^1.5.0
     "@react-native/eslint-config": ^0.73.1
     "@release-it/conventional-changelog": ^5.0.0
